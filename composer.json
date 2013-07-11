@@ -1,0 +1,16 @@
+{
+	"name": "reinink/roundabout",
+    "description": "RESTful router based on the Symfony2 HttpFoundation.",
+    "version": "1.0.0",
+	"autoload":
+	{
+		"psr-0":
+		{
+			"Reinink\\Roundabout\\": "src"
+		}
+	},
+    "require":
+    {
+        "symfony/http-foundation": "2.1.*@dev"
+    }
+}
