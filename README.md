@@ -12,7 +12,21 @@ RESTful router based on the Symfony2 HttpFoundation.
 - Ability to bulk imports routes using arrays
 - Custom controller instantiation (for IoC container integration)
 
-## Setup
+## Getting started
+
+### Installation
+
+Roundabout is available via Composer:
+
+```json
+{
+    "require": {
+        "reinink/roundabout": "1.*"
+    }
+}
+```
+
+### Setup
 
 ```php
 <?php
@@ -20,12 +34,14 @@ RESTful router based on the Symfony2 HttpFoundation.
 use \Reinink\Roundabout\Router;
 use \Symfony\Component\HttpFoundation\Request;
 
+// Include Composer autoloader
+require 'vendor/autoload.php';
+
 // Create request object
 $request = Request::createFromGlobals();
 
 // Create router
 $router = new Router($request);
-
 ```
 
 ## Basic routes
