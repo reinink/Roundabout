@@ -100,8 +100,8 @@ class Router
         $this->routes[] =
         [
             'path' => $path,
-            'method' => 'get',
-            'secure' => false,
+            'method' => $method,
+            'secure' => $secure,
             'callback' => $callback
         ];
     }
