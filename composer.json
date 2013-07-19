@@ -2,7 +2,7 @@
 	"name": "reinink/roundabout",
     "description": "RESTful router based on the Symfony2 HttpFoundation.",
     "license": "MIT",
-    "version": "1.0.0",
+    "version": "1.0.1",
 	"autoload":
 	{
 		"psr-0":
