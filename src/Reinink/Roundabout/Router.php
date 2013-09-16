@@ -12,7 +12,7 @@ class Router
     {
         $this->request = $request;
         $this->instantiation_callback = $instantiation_callback;
-        $this->routes = [];
+        $this->routes = array();
     }
 
     public function get($path, $callback)
@@ -97,18 +97,17 @@ class Router
             trigger_error('Route callback must be a valid callback, ' . gettype($callback) . ' given.', E_USER_ERROR);
         }
 
-        $this->routes[] =
-        [
+        $this->routes[] = array(
             'path' => $path,
-            'method' => $method,
-            'secure' => $secure,
+            'method' => 'get',
+            'secure' => false,
             'callback' => $callback
-        ];
+        );
     }
 
     private function match(&$route)
     {
-        if (!$this->request->isMethod($route['method'])) {
+        if (!$this->request->isMethod($route['method']) and strtolower($this->request->query->get('method')) !== strtolower($route['method'])) {
             return false;
         }
 
