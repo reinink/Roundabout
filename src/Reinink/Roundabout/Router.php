@@ -8,11 +8,15 @@ class Router
     protected $instantiation_callback;
     protected $routes;
 
-    public function __construct(\Symfony\Component\HttpFoundation\Request $request, Callable $instantiation_callback = null)
+    public function __construct(\Symfony\Component\HttpFoundation\Request $request, callable $instantiation_callback = null)
     {
         $this->request = $request;
         $this->instantiation_callback = $instantiation_callback;
         $this->routes = array();
+
+        if ($this->request->query->get('_method')) {
+            $this->request->setMethod($this->request->query->get('_method'));
+        }
     }
 
     public function get($path, $callback)
@@ -107,7 +111,7 @@ class Router
 
     private function match(&$route)
     {
-        if (!$this->request->isMethod($route['method']) and strtolower($this->request->query->get('method')) !== strtolower($route['method'])) {
+        if (!$this->request->isMethod($route['method'])) {
             return false;
         }
 
